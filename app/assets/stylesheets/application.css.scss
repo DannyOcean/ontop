@@ -20,9 +20,9 @@
 /* variables */
 $red: #F05959;
 $blue: #25B3FA;
-$dark-grey: #B8B8B8;
 $light-grey: #E8E8E8;
-
+$dark-grey: #B8B8B8;
+$darker-grey: #8F8F8F;
 /* custom styles */
 
 .field_with_errors { @extend .has-error; }
@@ -43,9 +43,10 @@ body { background: image-url("skulls.png"); }
   border-radius: 0px;
 
   width: 100%;
-  /*width: 500px;*/
   height: 130px;
-  background: rgba(245, 245, 245, 1);
+  
+  margin-bottom: 40px;
+  background: rgba(245, 245, 245, 0.75);
   font-family: helvetica;
 
   .title {
@@ -53,18 +54,19 @@ body { background: image-url("skulls.png"); }
     padding-top: 2px;
     padding-bottom: 2px;
     background-color: $light-grey;
-    color: rgba(80, 80, 80, 1);
+    
+    color: rgba(80, 80, 80, 0.85);
     text-align: center;
     font-size: 14px;
   }
 
   .member {
-    /*margin-left: 10px;*/
     margin-top: 22px; 
     display: inline-block;
     
-    font-size: 16px;
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
 
     width: 200px;
   }
@@ -81,28 +83,52 @@ body { background: image-url("skulls.png"); }
   }
 
   .vs {
-    margin-top: 25px;
-    margin-left: 18%;
-    /*margin-left: 18px;*/
+    margin-top: 18px;
+    margin-left: 16%;
+    
     display: inline-block;
     background-color: $red;
-    padding-top: 9px;
+    padding-top: 18px;
 
     text-align: center;
     color: white;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 22px;
 
-    border-radius: 22px;
-    width: 44px;
-    height: 44px;
+    border-radius: 350px;
+    width: 70px;
+    height: 70px;
   }
 
+/*
+  .vs {
+    background: image-url("vs.png");
+    opacity: 0.9;
+
+    display: inline-block;
+    width: 336px;
+    height: 104px;
+
+    padding-top: 22px;
+
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 36px;
+    font-weight: bold;
+  }
+*/
   -moz-box-shadow: 4px 4px 0 $dark-grey;
   -webkit-box-shadow: 4px 4px 0 $dark-grey;
   box-shadow: 4px 4px 0 $dark-grey;
 }
 
-.navi-panel {
-  position: absolute;
+
+.duel:hover { 
+  border: 1px solid $darker-grey;
+  background: rgba(245, 245, 245, 1); 
+
+  -moz-box-shadow: 4px 4px 0 $darker-grey;
+  -webkit-box-shadow: 4px 4px 0 $darker-grey;
+  box-shadow: 4px 4px 0 $darker-grey;
+
+  .title { font-weight: bold; }
 }
