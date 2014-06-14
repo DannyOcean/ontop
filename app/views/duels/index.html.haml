@@ -1,0 +1,10 @@
+.row
+  - unless @duels.empty?
+    - @duels.each do |duel|
+      .duel
+        .title= duel.title
+        .member.caller= User.find(duel.caller_id).name
+        .vs VS
+        .member.accepter= User.find(duel.accepter_id).name
+  - else
+    %h2 There are no duels yet

@@ -13,6 +13,9 @@ gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'

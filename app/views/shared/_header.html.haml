@@ -1,0 +1,26 @@
+%header.header
+  %nav.navbar.navbar-default.navbar-inverse{ role: "navigation" }
+    .container
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %a.navbar-brand{ href: root_path } ON TOP
+        %ul.nav.navbar-nav.navbar-right
+          - unless current_user.nil?
+            %li.dropdown
+              %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
+                = current_user.name
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href: "#"} Action
+                %li
+                  %a{href: "#"} Another action
+                %li
+                  %a{href: "#"} Something else here
+                %li.divider
+                %li
+                  %a{ href: destroy_user_session_path, 'data-method' => "delete" } Sign out
+          - else
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                = link_to "Sign in with Facebook", "/users/auth/facebook", id: "sign_in"

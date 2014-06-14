@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+
+/* variables */
+$red: #F05959;
+$blue: #25B3FA;
+$dark-grey: #B8B8B8;
+$light-grey: #E8E8E8;
+
+/* custom styles */
+
+.field_with_errors { @extend .has-error; }
+.error_explanation {
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background: #FAE1E1;
+  border-radius: 5px;
+  border: 1px solid #D9ABAB;
+}
+
+.navbar { border-radius: 0px; }
+body { background: image-url("skulls.png"); }
+
+.duel {
+  border: 1px solid $dark-grey;
+  border-radius: 0px;
+
+  width: 100%;
+  /*width: 500px;*/
+  height: 130px;
+  background: rgba(245, 245, 245, 1);
+  font-family: helvetica;
+
+  .title {
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: $light-grey;
+    color: rgba(80, 80, 80, 1);
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .member {
+    /*margin-left: 10px;*/
+    margin-top: 22px; 
+    display: inline-block;
+    
+    font-size: 16px;
+    text-align: center;
+
+    width: 200px;
+  }
+  .caller {
+    margin-left: 7%;
+    float: left;
+    color: $blue;
+  }
+
+  .accepter {
+    margin-right: 7%;
+    float: right;
+    color: $blue;
+  }
+
+  .vs {
+    margin-top: 25px;
+    margin-left: 18%;
+    /*margin-left: 18px;*/
+    display: inline-block;
+    background-color: $red;
+    padding-top: 9px;
+
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 22px;
+    width: 44px;
+    height: 44px;
+  }
+
+  -moz-box-shadow: 4px 4px 0 $dark-grey;
+  -webkit-box-shadow: 4px 4px 0 $dark-grey;
+  box-shadow: 4px 4px 0 $dark-grey;
+}
+
+.navi-panel {
+  position: absolute;
+}

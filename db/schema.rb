@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614112906) do
+ActiveRecord::Schema.define(version: 20140614135414) do
+
+  create_table "duels", force: true do |t|
+    t.string   "title"
+    t.integer  "caller_id"
+    t.integer  "accepter_id"
+    t.integer  "winner_id"
+    t.integer  "looser_id"
+    t.datetime "deadline"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "duels_users", id: false, force: true do |t|
+    t.integer "duel_id"
+    t.integer "user_id"
+  end
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"

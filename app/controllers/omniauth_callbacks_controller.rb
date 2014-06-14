@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
+  # TODO: revrite only for facebook
   def self.provides_callback_for(provider)
     class_eval %Q{
       def #{provider}
@@ -14,7 +16,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     }
   end
-
+  
+  # TODO: remove
   [:twitter, :facebook, :linked_in].each do |provider|
     provides_callback_for provider
   end
