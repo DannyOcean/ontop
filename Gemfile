@@ -19,6 +19,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "koala", "~> 1.10.0rc"
 
 group :development do
   gem 'sqlite3'

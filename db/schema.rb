@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614135414) do
+ActiveRecord::Schema.define(version: 20140615174407) do
 
   create_table "duels", force: true do |t|
     t.string   "title"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20140614135414) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "image"
+    t.string   "oauth_access_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

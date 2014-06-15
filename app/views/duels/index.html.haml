@@ -1,10 +1,10 @@
 .row
   - unless @duels.empty?
     - @duels.each do |duel|
-      .duel
+      .duel{ href: duel_path(duel) }
         .title= duel.title
-        .member.caller= User.find(duel.caller_id).name
+        .member.caller= duel.users.last.try(:name)
         .vs VS
-        .member.accepter= User.find(duel.accepter_id).name
+        .member.accepter= duel.users.first.try(:name)
   - else
     %h2 There are no duels yet

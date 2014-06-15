@@ -15,3 +15,4 @@
 //= require moment
 //= require bootstrap
 //= require bootstrap-datetimepicker
+//= require duels
