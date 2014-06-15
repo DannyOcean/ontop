@@ -1,3 +1,30 @@
 .row
   .duel
     = render 'duel', duel: @duel, last: @last, first: @first
+  .comments
+    - unless @comments.empty?
+      - @comments.each do |comment|
+        .panel.panel-default
+          .panel-heading
+            %span= image_tag current_user.image, size: '30x30'
+            said
+            = time_ago_in_words(comment.created_at)
+            ago:
+            %a{ href: duel_comment_path(@duel, comment), 'data-method'=>'delete' }
+              %span.pull-right
+                .glyphicon.glyphicon-remove{ style: 'font-size: 22px;' }
+          .panel-body
+            %h3.mini= comment.title
+            = comment.body
+    .btn.btn-primary{ id: "toggle_form" }
+      Add comment
+    %br
+    %br
+    = form_for [@duel, Comment.new], html: { id: 'new_comment_form' } do |f|
+      .form-group
+        %label Title
+        = f.text_field :title, class: 'form-control', placeholder: 'Enter the title for the comment'
+      .form-group
+        %label Comment
+        = f.text_area :body, class: 'form-control', placeholder: 'Comment it!'
+      = f.submit "Save", class: "btn btn-success"

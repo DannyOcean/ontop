@@ -18,12 +18,13 @@ class DuelsController < ApplicationController
   def show
     @last = @duel.users.last
     @first = @duel.users.first
+    @comments = @duel.comments
   end
 
   def create
     @duel = Duel.new(duel_params)
     if @duel.save
-      @duel.set_params(current_user)
+      @duel.update_after_save(current_user)
       redirect_to duels_path
     else
       render 'new'
