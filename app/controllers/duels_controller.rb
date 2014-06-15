@@ -15,7 +15,10 @@ class DuelsController < ApplicationController
     @duel = Duel.new
   end
 
-  def show; end
+  def show
+    @last = @duel.users.last
+    @first = @duel.users.first
+  end
 
   def create
     @duel = Duel.new(duel_params)

@@ -1,0 +1,8 @@
+.title= duel.title
+.member.caller
+  .av.left= image_tag last.image
+  .txt= last.try(:name)
+.vs VS
+.member.accepter
+  .txt= first.try(:name)
+  .av.righ= image_tag first.image

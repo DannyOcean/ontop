@@ -10,6 +10,7 @@
               %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
                 = current_user.name
                 %b.caret
+                = image_tag current_user.image, size: '25x25'
               %ul.dropdown-menu
                 %li
                   %a{href: "#"} Action
