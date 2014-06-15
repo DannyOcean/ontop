@@ -18,11 +18,15 @@
 @import 'bootstrap-datetimepicker';
 
 /* variables */
+
 $red: #F05959;
 $blue: #25B3FA;
 $light-grey: #E8E8E8;
 $dark-grey: #B8B8B8;
 $darker-grey: #8F8F8F;
+$duel-background-transparent: rgba(245, 245, 245, 0.75);
+$duel-background: rgba(245, 245, 245, 1);
+
 /* custom styles */
 
 .field_with_errors { @extend .has-error; }
@@ -36,7 +40,17 @@ $darker-grey: #8F8F8F;
 }
 
 .navbar { border-radius: 0px; }
-body { background: image-url("skulls.png"); }
+
+body { 
+  background: image-url("skulls.png"); 
+  padding-top: 70px;
+}
+
+.custom-nav-panel { 
+  position: fixed; 
+  width: 16.6667%;
+  float: left;
+}
 
 .duel {
   border: 1px solid $dark-grey;
@@ -46,7 +60,7 @@ body { background: image-url("skulls.png"); }
   height: 130px;
   
   margin-bottom: 40px;
-  background: rgba(245, 245, 245, 0.75);
+  background: $duel-background-transparent;
   font-family: helvetica;
 
   .title {
@@ -121,14 +135,25 @@ body { background: image-url("skulls.png"); }
   box-shadow: 4px 4px 0 $dark-grey;
 }
 
-
 .duel:hover { 
   border: 1px solid $darker-grey;
-  background: rgba(245, 245, 245, 1); 
+  background: $duel-background; 
 
   -moz-box-shadow: 4px 4px 0 $darker-grey;
   -webkit-box-shadow: 4px 4px 0 $darker-grey;
   box-shadow: 4px 4px 0 $darker-grey;
 
   .title { font-weight: bold; }
+}
+
+.list-group-item {
+  background-color: $duel-background;
+}
+
+.list-group-item:hover {
+  background: rgba(250, 250, 250, 1); 
+}
+
+a:hover {
+  text-decoration: none;
 }

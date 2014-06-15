@@ -1,17 +1,24 @@
-.row
-  .col-sm-12
-    .panel
-      .panel-body
-        = link_to "All duels", duels_path            
-      .panel-body
-        My duels
-      .panel-body
-        = link_to "New duel", new_duel_path
-  .col-sm-12
-    .panel
-      .panel-body
-        History
-      .panel-body
-        Statistics
-      .panel-body
-        Settings
+.custom-nav-panel
+  .row
+    .col-sm-12
+      %ul.list-group
+        %li.list-group-item 
+          %span.glyphicon.glyphicon-globe
+            = link_to "All duels", duels_path
+        %li.list-group-item
+          %span.glyphicon.glyphicon-eye-open
+            = link_to "My duels", my_current_duels_path
+        %li.list-group-item
+          %span.glyphicon.glyphicon-play-circle
+            = link_to "New duel", new_duel_path
+    .col-sm-12
+      %ul.list-group
+        %li.list-group-item 
+          %span.glyphicon.glyphicon-time
+            History
+        %li.list-group-item 
+          %span.glyphicon.glyphicon-stats
+            Statistics
+        %li.list-group-item 
+          %span.glyphicon.glyphicon-cog
+            Settings

@@ -1,3 +1,4 @@
 - if entity.errors.any?
-  - entity.errors.full_messages.each do |msg|
-    %p.text-danger= msg
+  .error_explanation
+    - entity.errors.full_messages.each do |msg|
+      %p.text-danger= msg

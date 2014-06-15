@@ -6,6 +6,11 @@ class DuelsController < ApplicationController
     @duels = Duel.all
   end
 
+  def my_current
+    @duels = current_user.duels
+    render 'index'
+  end
+
   def new
     @duel = Duel.new
   end
@@ -14,8 +19,8 @@ class DuelsController < ApplicationController
 
   def create
     @duel = Duel.new(duel_params)
-    @duel.caller_id = current_user.id
     if @duel.save
+      @duel.set_params(current_user)
       redirect_to duels_path
     else
       render 'new'
