@@ -26,6 +26,8 @@ $dark-grey: #B8B8B8;
 $darker-grey: #8F8F8F;
 $duel-background-transparent: rgba(245, 245, 245, 0.75);
 $duel-background: rgba(245, 245, 245, 1);
+$vs-gray-light: rgba(50, 50, 50, 1);
+$vs-gray-dark: rgba(30, 30, 30, 1);
 
 /* overriden bootstrap styles */
 
@@ -72,6 +74,17 @@ a:hover {
   margin-top: 0px;
   margin-bottom: 5px;
 }
+
+.br {
+  margin-bottom: 15px; 
+}
+
+.votes {
+  padding: 10px;
+  background-color: $duel-background-transparent;
+  border: 3px solid $light-grey;
+}
+
 .av img { border-radius: 8px; }
 .duel {
   cursor: pointer;
@@ -110,7 +123,7 @@ a:hover {
   .caller {
     margin-left: 1%;
     float: left;
-    color: $blue;
+    color: $red;
   }
 
   .accepter {
@@ -139,15 +152,15 @@ a:hover {
   }
 
   .vs {
-    margin-top: 18px;
     margin-left: 11%;
+    margin-top: 18px;
+    padding-top: 19px;
     
     display: inline-block;
-    background-color: $red;
-    padding-top: 18px;
+    background-color: $vs-gray-light;
 
-    text-align: center;
     color: white;
+    text-align: center;
     font-size: 22px;
 
     border-radius: 350px;
@@ -169,4 +182,5 @@ a:hover {
   box-shadow: 4px 4px 0 $darker-grey;
 
   .title { font-weight: bold; }
+  .vs { background-color: $vs-gray-dark; }
 }

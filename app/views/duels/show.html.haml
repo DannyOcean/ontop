@@ -1,25 +1,42 @@
 .row
   .duel
     = render 'duel', duel: @duel, last: @last, first: @first
-  .comments
-    - unless @comments.empty?
+  .progress
+    .progress-bar.progress-bar-danger{style: "width: 58%"}
+      %span 58%
+    .progress-bar.progress-bar-active{style: "width: 42%"}
+      %span 42%
+  -unless voted?(current_user, @duel)
+    .votes.br
+      = form_for [@duel, Vote.new], html: { id: 'new_vote_form' } do |f|
+        .input-group.br
+          .input-group-addon
+            = f.radio_button :user_id, @first.id
+          %label.form-control= @first.name
+        .input-group.br
+          .input-group-addon
+            = f.radio_button :user_id, @last_id
+          %label.form-control= @last.name
+        = f.submit "Vote", class: "btn btn-success"
+  - unless @comments.empty?
+    .comments
       - @comments.each do |comment|
         .panel.panel-default
           .panel-heading
-            %span= image_tag current_user.image, size: '30x30'
+            %span= image_tag comment.user.image, size: '30x30'
             said
             = time_ago_in_words(comment.created_at)
             ago:
-            %a{ href: duel_comment_path(@duel, comment), 'data-method'=>'delete' }
-              %span.pull-right
-                .glyphicon.glyphicon-remove{ style: 'font-size: 22px;' }
+            - unless current_user.nil?
+              %a{ href: duel_comment_path(@duel, comment), 'data-method'=>'delete' }
+                %span.pull-right
+                  .glyphicon.glyphicon-remove{ style: 'font-size: 22px;' }
           .panel-body
             %h3.mini= comment.title
             = comment.body
-    .btn.btn-primary{ id: "toggle_form" }
-      Add comment
-    %br
-    %br
+  - unless current_user.nil?
+    .btn.btn-primary.br{ id: "toggle_form" }
+      New comment
     = form_for [@duel, Comment.new], html: { id: 'new_comment_form' } do |f|
       .form-group
         %label Title

@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :find_comment, only: [:destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_duel, only: [:new, :create, :destroy]
+  before_action :find_comment, only: [:destroy]
 
   def new
     @comment = @duel.comments.build

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :duels, except: [:edit, :update] do
     get :my_current, on: :collection
+    resources :votes, only: :create
     resources :comments, except: [:index, :edit, :update]
   end
 end
