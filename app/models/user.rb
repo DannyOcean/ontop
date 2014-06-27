@@ -36,7 +36,6 @@ class User < ActiveRecord::Base
       if user.nil?
         user = User.new(
           name: auth.extra.raw_info.name,
-          #username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20],
           image: auth.info.image,
@@ -63,4 +62,9 @@ class User < ActiveRecord::Base
   def graph
     @graph = Koala::Facebook::API.new(oauth_access_token)
   end
+
+  def self.data_for_select_ids
+    pluck(:email, :id)
+  end
+  
 end

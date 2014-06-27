@@ -37,7 +37,7 @@
   - unless current_user.nil?
     .btn.btn-primary.br{ id: "toggle_form" }
       New comment
-    = form_for [@duel, Comment.new], html: { id: 'new_comment_form' } do |f|
+    = form_for [@duel, Comment.new], html: { id: 'new_comment_form', class: 'comments-form br' } do |f|
       .form-group
         %label Title
         = f.text_field :title, class: 'form-control', placeholder: 'Enter the title for the comment'

@@ -5,7 +5,7 @@
     = f.text_field :title, class: 'form-control', placeholder: 'Enter the title for the duel'
   .form-group
     %label 
-    = f.text_field :accepter_id, class: 'form-control', placeholder: 'Enter the id of accepter'
+    = f.select :accepter_id, options_for_select(User.data_for_select_ids), {}, class: 'form-control' 
   .form-group
     %label Deadline
     #datetimepicker.input-group.date{ "data-date-format" => "YYYY-MM-DD" }

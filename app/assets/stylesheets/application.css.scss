@@ -85,6 +85,12 @@ a:hover {
   border: 3px solid $light-grey;
 }
 
+.comments-form {
+  padding: 10px;
+  background-color: $duel-background-transparent;
+  border: 3px solid $light-grey;  
+}
+
 .av img { border-radius: 8px; }
 .duel {
   cursor: pointer;
